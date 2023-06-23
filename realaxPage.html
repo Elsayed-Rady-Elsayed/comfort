@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .section1 h1,
+    .section2 h1,
+    .section3 h1,
+    .section4 h1 {
+      font-size: 4rem !important;
+    }
+    @media (max-width: 800px) {
+      .section1 h1,
+      .section2 h1,
+      .section3 h1,
+      .section4 h1 {
+        font-size: 2rem !important;
+      }
+    }
+  </style>
+  <body>
+    <div
+      id="search-part"
+      class="search p-3 d-flex justify-content-between align-items-center position-absolute w-100 bg-light z-3"
+      style="top: -100%; transition: 0.3s"
+    >
+      <div class="empty"></div>
+      <input type="search" class="form-control w-50 p-3" placeholder="Search" />
+      <div class="close-search" id="close-search" style="cursor: pointer">
+        X
+      </div>
+    </div>
+    <div
+      class="header p-3 px-4 d-flex justify-content-between align-items-start bg-transparent position-fixed w-100 text-light"
+      style="
+        z-index: 55 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        background-color: transparent;
+      "
+      id="header"
+    >
+      <div id="menu" class="d-none"><i id="" class="fa-solid fa-bars"></i></div>
+      <h3 class="fw-bold">Comfort</h3>
+      <ul class="navbar-links m-auto text-light">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          id="home-btn"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          id="product-btn"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 opacity-75 fw-light"
+          id="shop-btn"
+        >
+          <a href="#products" class="text-decoration-none text-light">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          id="page-btn"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          id="blog-btn"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-light opacity-75"
+          id="contact-btn"
+        >
+          <a href="#contact" class="text-light text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+      <div class="links d-flex gap-4 justify-content-center align-items-center">
+        <span id="search"
+          ><i class="fa-solid fa-magnifying-glass text-light"></i
+        ></span>
+        <span id="fav"><i class="fa-regular fa-heart text-light"></i></span>
+        <span id="cart"
+          ><i class="fa-solid fa-cart-shopping text-light"></i
+        ></span>
+        <a href="login.html"><i class="fa-regular fa-user text-light"></i></a>
+      </div>
+    </div>
+    <div
+      id="sm-menu"
+      class="small-screen-menu bg-light"
+      style="
+        z-index: 33322443;
+        width: 100%;
+        height: 50vh;
+        display: none;
+        transition: 0.3s !important;
+      "
+    >
+      <ul
+        class="navbar-links m-auto d-flex flex-column align-items-start justify-content-start p-2 h-100"
+      >
+        <button
+          class="home-btn-sm btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="product-btn-sm"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          <a href="#products" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="page-btn-sm"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="blog-btn-sm"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          <a href="#contact" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+    </div>
+    <div class="pressed-link-extansion d-none" id="press-li-ex"></div>
+    <div
+      class="section1 position-relative w-100"
+      style="
+        background-size: cover;
+        height: 70vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('https://cdn.shopify.com/s/files/1/0749/8304/7476/files/1_47ba53d4-67dd-4b9f-9f86-63e4292f3d76_2400x.jpg?v=1682574703');
+      "
+    >
+      <span class="w-100 h-100 bg-black d-block opacity-25"></span>
+      <h1
+        class="position-absolute text-light fw-bolder"
+        style="left: 5%; top: 25%"
+      >
+        Exquisite <br />
+        Furniture <br />
+        Collection
+      </h1>
+    </div>
+    <div
+      class="section2 position-relative w-100"
+      style="
+        background-size: cover;
+        height: 70vh;
+        background-repeat: no-repeat;
+
+        background-position: center center;
+        background-image: url('https://cdn.shopify.com/s/files/1/0749/8304/7476/files/4_126b1117-5b91-4b3f-8c70-52caeb1f8929_2400x.jpg?v=1682575484');
+      "
+    >
+      <span class="w-100 h-100 bg-black d-block opacity-25"></span>
+      <h1
+        class="position-absolute text-light fw-bolder"
+        style="right: 5%; top: 25%"
+      >
+        Stylish and <br />
+        Affordable <br />
+        Furniture
+      </h1>
+    </div>
+    <div
+      class="section3 position-relative w-100"
+      style="
+        background-size: cover;
+        height: 70vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('https://cdn.shopify.com/s/files/1/0749/8304/7476/files/5_de6e9750-270a-4195-be04-5190b892cd63_2400x.jpg?v=1682775659');
+      "
+    >
+      <span class="w-100 h-100 bg-black d-block opacity-25"></span>
+      <h1
+        class="position-absolute text-light fw-bolder"
+        style="top: 10%; left: 5%"
+      >
+        Experience<br />
+        Luxury Living
+      </h1>
+    </div>
+    <div
+      class="section4 position-relative w-100"
+      style="
+        background-size: cover;
+        height: 70vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('https://cdn.shopify.com/s/files/1/0749/8304/7476/files/6_25b4fe11-205b-4a00-b567-3e0a3f9b567e_2400x.jpg?v=1682775993');
+      "
+    >
+      <span class="w-100 h-100 bg-black d-block opacity-25"></span>
+      <h1
+        class="position-absolute text-light fw-bolder"
+        style="top: 10%; right: 5%"
+      >
+        Cozy and Inviting<br />
+        atmosphere
+      </h1>
+    </div>
+    <div
+      class="cart-part position-absolute end-100 bg-body-secondary"
+      style="
+        width: 300px !important;
+        height: 0vh !important;
+        z-index: 228822 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="cart-part"
+    >
+      <div class="header opacity-75 d-flex justify-content-between p-2">
+        <h3 class="opacity-75">Shopping cart</h3>
+        <span class="fw-bold" style="cursor: pointer" id="close-cart">X</span>
+      </div>
+      <div class="item d-flex m-3 gap-2">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195"
+          class="w-50"
+          style=""
+          alt=""
+        />
+        <div class="text w-50">
+          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
+          <div class="price fw-light mt-2">987$</div>
+          <div class="color fw-light mt-2">Black</div>
+          <button
+            class="border-1 border border-dark mt-2 text-danger"
+            style="width: 80px; height: 40px"
+          >
+            Delete<i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="fav-part position-absolute end-100 bg-body-secondary"
+      style="
+        width: 300px !important;
+        height: 0vh !important;
+        z-index: 228822 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="fav-part"
+    >
+      <div class="header opacity-75 d-flex justify-content-between p-2">
+        <h3 class="opacity-75">Favourits</h3>
+        <span class="fw-bold" style="cursor: pointer" id="close-fav">X</span>
+      </div>
+      <div class="item d-flex m-3 gap-2">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195"
+          class="w-50"
+          style=""
+          alt=""
+        />
+        <div class="text w-50">
+          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
+          <div class="price fw-light mt-2">987$</div>
+          <div class="color fw-light mt-2">Black</div>
+          <button
+            class="border-1 border border-dark mt-2 text-danger"
+            style="width: 80px; height: 40px"
+          >
+            Delete<i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="contact"
+      class="footer d-flex justify-content-between text-light p-5 text-dark"
+      style="background-color: var(--dark); height: 60vh !important"
+    >
+      <div class="left">
+        <h1 class="fw-bold text-light">Comfort</h1>
+        <div class="text">
+          <address class="d-flex gap-2 align-items-start my-4 text-light">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Elsafyna,Toukh,Qalupia</p>
+          </address>
+          <div class="email d-flex align-items-center my-4 text-light">
+            <i class="fa-regular fa-envelope"></i>
+            <p class="m-auto mx-1 small">
+              <a
+                href="mailto:sayedrady61@gmail.com"
+                class="text-light text-decoration-none"
+                >sayedrady61@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="phone d-flex align-items-center my-4 px-3 text-light">
+            <i class="fa-solid fa-phone"></i>
+            <p class="m-auto small">
+              <a href="tel:+2013631377" class="text-light text-decoration-none"
+                >+2013631377</a
+              >
+            </p>
+          </div>
+          <div class="social mx-2 my-4 text-light">
+            <a href="" class="text-light text-decoration-none">
+              <i class="fa-brands fa-twitter px-1"></i>
+            </a>
+            <a href="" class="text-light text-decoration-none">
+              <i class="fa-brands fa-facebook px-1"></i>
+            </a>
+            <a href="" class="text-light text-decoration-none">
+              <i class="fa-brands fa-instagram px-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="center text-light">
+        <h4 class="fw-bold">INFORMATION</h4>
+        <ul class="list-unstyled d-flex flex-column g-5 text-capitalize">
+          <li>FAQ</li>
+          <li>PRIVACY POLICY</li>
+          <li>CUSTOMER SERVICES</li>
+          <li>CONTACT US</li>
+        </ul>
+      </div>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="all.min.js"></script>
+    <script src="enc.js" type="text/javascript"></script>
+  </body>
+</html>

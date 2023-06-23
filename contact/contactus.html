@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../all.min.css" />
+    <link rel="stylesheet" href="../bootstrap.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <style>
+    @media (max-width: 776px) {
+      .landing-faq img {
+        max-width: 0px !important;
+      }
+      .question {
+        width: 100% !important;
+        padding: 20px 0 !important;
+        padding-right: 22px !important;
+      }
+      .features ul {
+        flex-direction: column;
+      }
+      .con-form {
+        width: 100% !important;
+      }
+    }
+  </style>
+  <body>
+    <div
+      id="goTop"
+      class="goTop position-fixed bg-dark text-light p-3 z-3"
+      style="right: 2%; bottom: 2%; display: none; cursor: pointer"
+    >
+      <i class="fa-solid fa-chevron-up"></i>
+    </div>
+    <div
+      id="search-part"
+      class="search p-3 d-flex justify-content-between align-items-center position-absolute w-100 bg-light z-3"
+      style="top: -100%; transition: 0.3s"
+    >
+      <div class="empty"></div>
+      <input type="search" class="form-control w-50 p-3" placeholder="Search" />
+      <div class="close-search" id="close-search" style="cursor: pointer">
+        X
+      </div>
+    </div>
+    <div
+      class="overlay bg-black opacity-50 position-absolute"
+      id="overlay"
+      style="z-index: -33; width: 100vw; height: 100vh; display: none"
+    ></div>
+    <div
+      class="header p-3 px-4 d-flex justify-content-between align-items-start"
+      style="
+        z-index: 55 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="header"
+    >
+      <div id="menu" class="d-none"><i id="" class="fa-solid fa-bars"></i></div>
+      <h3 class="fw-bold">Comfort</h3>
+      <ul class="navbar-links m-auto">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="home-btn"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="product-btn"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 opacity-75 fw-light"
+          style="color: var(--dark)"
+          id="shop-btn"
+        >
+          <a href="#products" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="page-btn"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="blog-btn"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="contact-btn"
+        >
+          <a href="#contact" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+      <div class="links d-flex gap-4 justify-content-center align-items-center">
+        <span id="search"
+          ><i class="fa-solid fa-magnifying-glass text-dark"></i
+        ></span>
+        <span id="fav"><i class="fa-regular fa-heart text-dark"></i></span>
+        <span id="cart"
+          ><i class="fa-solid fa-cart-shopping text-dark"></i
+        ></span>
+        <a href="login.html"><i class="fa-regular fa-user text-dark"></i></a>
+      </div>
+    </div>
+    <div
+      id="sm-menu"
+      class="small-screen-menu bg-light"
+      style="
+        z-index: 33322443;
+        width: 100%;
+        height: 50vh;
+        display: none;
+        transition: 0.3s !important;
+      "
+    >
+      <ul
+        class="navbar-links m-auto d-flex flex-column align-items-start justify-content-start p-2 h-100"
+      >
+        <button
+          class="home-btn-sm btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="product-btn-sm"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          <a href="#products" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="page-btn-sm"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="blog-btn-sm"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          <a href="#contact" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+    </div>
+    <div class="pressed-link-extansion d-none" id="press-li-ex"></div>
+    <div
+      class="cart-part position-absolute end-100 bg-body-secondary"
+      style="
+        width: 300px !important;
+        height: 100vh !important;
+        z-index: 228822 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="cart-part"
+    >
+      <div class="header opacity-75 d-flex justify-content-between p-2">
+        <h3 class="opacity-75">Shopping cart</h3>
+        <span class="fw-bold" style="cursor: pointer" id="close-cart">X</span>
+      </div>
+      <div class="item d-flex m-3 gap-2">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195"
+          class="w-50"
+          style=""
+          alt=""
+        />
+        <div class="text w-50">
+          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
+          <div class="price fw-light mt-2">987$</div>
+          <div class="color fw-light mt-2">Black</div>
+          <button
+            class="border-1 border border-dark mt-2 text-danger"
+            style="width: 80px; height: 40px"
+          >
+            Delete<i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="fav-part position-absolute end-100 bg-body-secondary"
+      style="
+        width: 300px !important;
+        height: 100vh !important;
+        z-index: 228822 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="fav-part"
+    >
+      <div class="header opacity-75 d-flex justify-content-between p-2">
+        <h3 class="opacity-75">Favourits</h3>
+        <span class="fw-bold" style="cursor: pointer" id="close-fav">X</span>
+      </div>
+      <div class="item d-flex m-3 gap-2">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195"
+          class="w-50"
+          style=""
+          alt=""
+        />
+        <div class="text w-50">
+          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
+          <div class="price fw-light mt-2">987$</div>
+          <div class="color fw-light mt-2">Black</div>
+          <button
+            class="border-1 border border-dark mt-2 text-danger"
+            style="width: 80px; height: 40px"
+          >
+            Delete<i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="landing w-100 overflow-hidden overflow-hidden text-center"
+      style="height: 80vh"
+    >
+      <div class="img">
+        <img
+          style="min-width: 100%; max-height: 350px"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/map-2_900x.jpg?v=1683297776"
+          alt=""
+        />
+        <h3 class="mt-5 text-dark opacity-75">How Can We Help?</h3>
+        <p class="small opacity-75 fw-light">
+          Help your customer by providing contact information and <br />
+          convenient way for them to submit their question.
+        </p>
+      </div>
+    </div>
+    <form
+      action=""
+      class="con-form w-50 text-center m-auto p-3 d-flex flex-column align-items-start"
+    >
+      <h3 class="opacity-75 w-100" style="margin-bottom: 6%">Contact Form</h3>
+      <div class="row w-100">
+        <div class="col text-start">
+          <label for="" class="opacity-75 m-2">Name</label>
+          <input type="text" class="form-control" placeholder="name" />
+        </div>
+        <div class="col text-start">
+          <label for="" class="opacity-75 m-2">Phone number</label>
+          <input type="text" class="form-control" placeholder="Phone number" />
+        </div>
+      </div>
+      <div class="email text-start w-100">
+        <label for="" class="text-capitalize m-2 opacity-75">email</label>
+        <input type="email" class="form-control" placeholder="Email" />
+      </div>
+      <div class="comment text-start w-100">
+        <label for="" class="text-capitalize m-2 opacity-75">comment</label>
+        <textarea
+          name=""
+          id=""
+          cols=""
+          rows=""
+          class="w-100 form-control"
+          style="height: 200px"
+        ></textarea>
+      </div>
+      <button class="btn btn-dark border-0 rounded-0 p-2 px-4 mt-4">
+        Send
+      </button>
+    </form>
+    <div
+      id="contact"
+      class="footer d-flex justify-content-between p-5 text-light"
+      style="background-color: var(--dark)"
+    >
+      <div class="left">
+        <h1 class="fw-bold">Comfort</h1>
+        <div class="text">
+          <address class="d-flex gap-2 align-items-start my-3">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://goo.gl/maps/f8Hn48LWXLopZJyq5" class="text-light"
+              >Elsafyna,Toukh,Qalupia</a
+            >
+          </address>
+          <div class="email d-flex align-items-center my-1">
+            <i class="fa-regular fa-envelope"></i>
+            <p class="m-auto mx-1 small">
+              <a href="mailto:sayedrady61@gmail.com" class="text-light"
+                >sayedrady61@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="phone d-flex align-items-center">
+            <i class="fa-solid fa-phone"></i>
+            <p class="m-2 small">
+              <a href="tel:+2013631377" class="text-light">+2013631377</a>
+            </p>
+          </div>
+          <div class="social mx-2 my-4">
+            <a
+              href="https://twitter.com/sayed__rady"
+              class="text-light text-decoration-none"
+            >
+              <i class="fa-brands fa-twitter px-1"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100092678178223"
+              class="text-light text-decoration-none"
+            >
+              <i class="fa-brands fa-facebook px-1"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100092678178223"
+              class="text-light text-decoration-none"
+            >
+              <i class="fa-brands fa-instagram px-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <h4 class="fw-bold">INFORMATION</h4>
+        <ul class="list-unstyled d-flex flex-column g-5 text-capitalize">
+          <li><a href="" class="text-light text-decoration-none">FAQ</a></li>
+          <li>PRIVACY POLICY</li>
+          <li>CUSTOMER SERVICES</li>
+          <li>CONTACT US</li>
+        </ul>
+      </div>
+      <div class="right">
+        <h4 class="fw-bold">NEWSLETTER</h4>
+        <p class="w-75">
+          Enter your email below to be the first to know about new collections
+          and product launches.
+        </p>
+        <input
+          type="text"
+          class="bg-transparent p-1 text-light border-0 border-bottom w-50 fs-6"
+          placeholder="Email"
+        />
+        <a
+          href="mailto:sayedrady388@gmail.com"
+          class="text-decoration-none text-light bg-black px-4 py-2 mx-5"
+          >Send</a
+        >
+      </div>
+    </div>
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="../all.min.js"></script>
+    <script src="contact.js" type="text/javascript"></script>
+  </body>
+</html>

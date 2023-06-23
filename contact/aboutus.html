@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../all.min.css" />
+    <link rel="stylesheet" href="../bootstrap.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  </head>
+  <style>
+    body {
+      /* height: 100px !important; */
+    }
+    @media (max-width: 776px) {
+      .cards .top {
+        flex-direction: column;
+      }
+      .bottom {
+        flex-direction: column-reverse !important;
+      }
+      .cards .top .text,
+      .bottom .text {
+        gap: 0 !important;
+      }
+      .bottom .text {
+        align-items: flex-end;
+        text-align: end;
+      }
+      .cards .top img,
+      .bottom img {
+        min-width: 100% !important;
+      }
+      .cards .top .text h3,
+      .bottom .text h3 {
+        font-size: 25px !important;
+      }
+      .top button,
+      .bottom button {
+        width: fit-content !important;
+      }
+    }
+  </style>
+  <body>
+    <div
+      class="landing w-100 position-relative"
+      style="
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+        background-image: url('https://cdn.shopify.com/s/files/1/0749/8304/7476/files/12_2400x.jpg?v=1683091978');
+      "
+    >
+      <div class="overlay w-100 h-100 bg-black opacity-50"></div>
+      <h2
+        class="position-absolute text-light fw-bold"
+        style="left: 3%; top: calc(50% - 50px); font-size: 50px"
+      >
+        about us
+      </h2>
+    </div>
+    <div class="cards m-auto mt-5 py-4" style="width: 80%">
+      <div
+        id="top"
+        class="top h-50 w-100 gap-3 justify-content-center"
+        style="display: none"
+      >
+        <img
+          style="max-width: 58%"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/about-us-1_900x.jpg?v=1683092901"
+          alt=""
+        />
+        <div
+          class="text d-flex flex-column justify-content-center align-content-center gap-3"
+        >
+          <h3 class="fw-bold text-dark" style="font-size: 40px">
+            A Wide Variety of <br />
+            Furniture
+          </h3>
+          <p class="fw-light" style="line-height: 1.8">
+            We offer everything from sofas and armchairs to <br />
+            dining tables and desks
+          </p>
+          <button class="btn btn-dark rounded-0 w-50" style="">
+            Learn More
+          </button>
+        </div>
+      </div>
+      <div
+        class="bottom h-50 mt-5 justify-content-center gap-3"
+        style="display: none"
+      >
+        <div
+          class="text d-flex flex-column justify-content-center align-content-center gap-3"
+          style=""
+        >
+          <h3 class="fw-bold text-dark" style="font-size: 40px">
+            Hassle-free <br />
+            Shopping <br />
+            Experiencee
+          </h3>
+          <p class="fw-light" style="line-height: 1.8">
+            Our website is user-friendly, allowing you to easily <br />
+            browse and select the furniture that best suits your <br />
+            needs.
+          </p>
+          <button class="btn btn-dark rounded-0 w-50" style="">
+            Learn More
+          </button>
+        </div>
+        <img
+          style="max-width: 58%"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/about-us-2_900x.jpg?v=1683092915"
+          alt=""
+        />
+      </div>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $(".cards #top,.cards .bottom").show(1000).css("display", "flex");
+      });
+    </script>
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="../all.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="goTop" class="goTop position-fixed bg-dark text-light p-3 z-3" style="right: 2%; bottom: 2%;display: none;cursor: pointer;"><i class="fa-solid fa-chevron-up"></i></div>
+    <div id="search-part" class="search p-3 d-flex justify-content-between align-items-center position-absolute w-100 bg-light z-3" style="top: -50%;transition: .3s;">
+      <div class="empty"></div>
+      <input type="search" class="form-control w-50 p-3" placeholder="Search">
+      <div class="close-search" id="close-search" style="cursor: pointer;">X</div>
+    </div>
+    <div class="overlay bg-black opacity-50 position-absolute" id="overlay" style="z-index: -33;;width: 100vw; height: 100vh;display: none;"></div>
+    <div
+      class="communication-header text-light d-flex flex-row justify-content-between align-items-center px-2"
+    >
+      <div
+        class="left d-flex flex-row align-items-center justify-content-between"
+      >
+        <div class="social mx-2">
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-twitter px-1"></i>
+          </a>
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-facebook px-1"></i>
+          </a>
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-instagram px-1"></i>
+          </a>
+        </div>
+        <div class="phone-email d-flex align-items-center flex-row-reverse">
+          <div class="email d-flex align-items-center">
+            <i class="fa-regular fa-envelope"></i>
+            <p class="m-auto mx-1 small">
+              <a
+                href="mailto:sayedrady61@gmail.com"
+                class="text-light text-decoration-none"
+                >sayedrady61@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="phone d-flex align-items-center px-3">
+            <i class="fa-solid fa-phone"></i>
+            <p class="m-auto small">
+              <a href="tel:+2013631377" class="text-light text-decoration-none"
+                >+2013631377</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Language
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="">English</a></li>
+          <li><a class="dropdown-item" href="#">Arabic</a></li>
+        </ul>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Country
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="">Egypt</a></li>
+          <li><a class="dropdown-item" href="#">England</a></li>
+        </ul>
+      </div>
+    </div>    
+    <div
+    class="header p-3 px-4 d-flex justify-content-between align-items-start"
+    style="z-index: 55 !important;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
+    id="header"
+    >
+    <div id="menu" class="d-none">    <i id="" class="fa-solid fa-bars"></i>
+    </div>
+      <h3 class="fw-bold"><a href="" class="text-decoration-none text-dark">Comfort</a></h3>
+      <ul class="navbar-links m-auto">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="home-btn"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="product-btn"
+
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 opacity-75 fw-light"
+          style="color: var(--dark)"
+          id="shop-btn"
+        >
+        <a href="products/products.html" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="page-btn"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="contact-btn"
+        >
+        <a href="contact/contactus.html" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+      <div class="links d-flex gap-4 justify-content-center align-items-center">
+        <span id="search"><i class="fa-solid fa-magnifying-glass text-dark"></i></span>
+        <span id="fav"><i class="fa-regular fa-heart text-dark"></i></span>
+        <span id="cart"><i class="fa-solid fa-cart-shopping text-dark"></i></span>
+        <a href="login.html"><i class="fa-regular fa-user text-dark"></i></a>
+      </div>
+      
+    </div>
+    <div id="sm-menu" class="small-screen-menu bg-light " style="z-index: 33322443;;width: 100%; height: 50vh; display: none; transition: .3s !important;">
+        <ul class="navbar-links m-auto d-flex flex-column align-items-start justify-content-start p-2  h-100">
+        <button
+          class="home-btn-sm btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="product-btn-sm"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+        <a href="products/products.html" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="page-btn-sm"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="blog-btn-sm"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+        <a href="#contact" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+    </div>
+    <div class="pressed-link-extansion d-none" id="press-li-ex"></div>
+    <div class="cart-part position-absolute end-0 bg-body-secondary" style="display: none;width: 300px !important;z-index: 228822 !important;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" id="cart-part">
+      <div class="header opacity-75 d-flex justify-content-between p-2 ">
+        <h3 class="opacity-75">Shopping cart</h3>
+      </div>
+  
+      </div>
+    </div>
+    <div class="fav-part position-absolute end-0 bg-body-secondary" style="display: none;width: 300px !important;height: 100vh !important;z-index: 228822 !important;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" id="fav-part">
+      <div class="header opacity-75 d-flex justify-content-between p-2 ">
+        <h3 class="opacity-75">Favourits</h3>
+      </div>
+      <div class="item d-flex m-3 gap-2 ">
+        <img src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195" class=" w-50" style=" " alt="">
+        <div class="text w-50">
+          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
+          <div class="price fw-light mt-2">987$</div>
+          <div class="color fw-light mt-2">Black</div>
+          <button class="border-1 border border-dark mt-2 text-danger" style="width: 80px; height: 40px;">Delete<i class="fa-regular fa-trash-can"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="landing d-flex flex-wrap" style="height: 100vh;margin-bottom: 0px !important;">
+      <div class="slider-btn d-flex g-3 position-absolute" style="top: 95%;left: 2%;height: 8%; width: 10%;">
+        <div id="slide-left" class="one text-dark d-flex justify-content-center bg-light align-items-center" style="width: 45%; margin-right:4% ;cursor: pointer;"><i class="fa-solid fa-chevron-left"></i></div>
+        <div id="slide-right" class="two text-dark d-flex justify-content-center bg-light align-items-center" style="width: 45%;cursor: pointer;"><i class="fa-solid fa-chevron-right"></i></div>
+      </div>
+      <div class="left d-flex justify-content-start" style="max-width: 50%;">
+        <img
+        style=""
+        id="land-img"
+          src="images/image2.png"
+          class="object-fit-cover"
+          alt=""
+        />
+      </div>
+      <div
+      id="right-landing"
+        class="w-50 right d-flex flex-column justify-content-center align-items-end text-end px-5"
+        style="max-width: 50%;"
+      >
+        <p class="fs-5 opacity-75 fw-light">New Collection</p>
+        <h3
+          class="fw-semibold mb-5 lh-base"
+          style="letter-spacing: 3px; font-size: 3.2rem"
+        >
+          Space <br />
+          Transformation
+        </h3>
+        <button
+          class="btn border-0 rounded-0 text-light px-4 py-2"
+          style="background-color: var(--dark)"
+        >
+        <a href="products/products.html" class="text-light text-decoration-none px-3">SHOP</a>
+        </button>
+      </div>
+    </div>
+    <div class="cards container-md d-flex flex-wrap my-5 overflow-hidden py-5">
+      <div
+        class="item position-relative d-flex overflow-hidden"
+        style="width: 32%; height: 250px"
+      >
+        <div
+          class="right-icons position-absolute end-0 d-flex flex-column p-3"
+          style="display: none !important"
+        >
+          <div
+            class="icon border border-1 border-black p-1 d-flex justify-content-center align-items-center"
+            style="background-color: white; height: 40px; width: 40"
+          >
+            <i class="fa-regular fa-eye my-3 fs-5"></i>
+          </div>
+          <div
+            class="icon border border-1 border-black p-1 d-flex justify-content-center align-items-center mt-2"
+            style="background-color: white; height: 40px; width: 40"
+          >
+            <i class="fa-solid fa-cart-shopping fs-5"></i>
+          </div>
+        </div>
+        <div
+          class="footer position-absolute bottom-0 p-2 opacity-75 d-flex flex-column align-items-center justify-content-center w-100 text-center"
+          style="
+            background-color: var(--white);
+            color: var(--dark);
+            display: none !important;
+          "
+        >
+          <h6>Cobalt wall Scone</h6>
+          <div class="price">
+            <del class="opacity-50 mx-1">$640.00</del>
+            <span class="" style="color: var(--red)">$560.00</span>
+          </div>
+        </div>
+        <img
+          class="object-fit-cover w-100"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_a8fdb3d6-f722-44ed-9091-6577e343aa2c_540x.jpg?v=1681304993"
+          alt=""
+        />
+      </div>
+      <div
+        class="item position-relative d-flex"
+        style="width: 32%; height: 250px"
+      >
+        <div class="text position-absolute bottom-0 px-3">
+          <h2 class="fw-light">Dining Room</h2>
+          <p class="opacity-75">Stylic affortable collection</p>
+        </div>
+        <img
+          class="object-fit-cover w-100"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/4_8aefe23c-05ec-400c-8d47-3c2bc7089f1e_540x.jpg?v=1682078845"
+          alt=""
+        />
+      </div>
+      <div
+        class="item position-relative d-flex"
+        style="width: 32%; height: 250px"
+      >
+        <div class="text position-absolute py-3 px-2">
+          <h2 class="fw-light text-light fw-bold">Chair</h2>
+          <a href="" class="text-decoration-none text-light fw-bold"
+            >Show Now</a
+          >
+        </div>
+        <img
+          class="object-fit-cover w-100"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/collections/collection_-_chair_540x.jpg?v=1682076752"
+          alt=""
+        />
+      </div>
+      <div
+        class="item position-relative d-flex"
+        style="width: 32%; height: 250px"
+      >
+        <div
+          class="right-icons position-absolute end-0 d-flex flex-column p-3"
+          style="display: none !important"
+        >
+          <div
+            class="icon border border-1 border-black p-1 d-flex justify-content-center align-items-center"
+            style="background-color: white; height: 40px; width: 40"
+          >
+            <i class="fa-regular fa-eye my-3 fs-5"></i>
+          </div>
+          <div
+            class="icon border border-1 border-black p-1 d-flex justify-content-center align-items-center mt-2"
+            style="background-color: white; height: 40px; width: 40"
+          >
+            <i class="fa-solid fa-cart-shopping fs-5"></i>
+          </div>
+        </div>
+        <div
+          class="footer position-absolute bottom-0 p-2 opacity-75 d-flex flex-column align-items-center justify-content-center w-100 text-center"
+          style="
+            background-color: var(--white);
+            color: var(--dark);
+            display: none !important;
+          "
+        >
+          <h6>Cobalt wall Scone</h6>
+          <div class="price">
+            <del class="opacity-50 mx-1">$640.00</del>
+            <span class="" style="color: var(--red)">$560.00</span>
+          </div>
+        </div>
+        <img
+          class="object-fit-cover w-100"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_b09368bb-0297-408e-9146-09d882f35aca_540x.jpg?v=1681305079"
+          alt=""
+        />
+      </div>
+      <div
+        class="item position-relative d-flex"
+        style="width: 32%; height: 250px"
+      >
+        <!-- <a href="" class="position-absolute btn border border-1 rounded-0 m-3"
+          >Shop Now</a
+        > -->
+        <img
+          class="object-fit-cover w-100"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/2_ba63627d-d2a0-4ce7-a7da-0041cbfc10ce_360x.jpg?v=1681304922"
+          alt=""
+        />
+      </div>
+      <div
+        class="item position-relative d-flex"
+        style="width: 32%; height: 250px"
+      >
+        <div class="text position-absolute bottom-0 px-3 py-3">
+          <h2 class="fw-light fw-bold text-light">Sofa</h2>
+          <a href="" class="text-light fw-bold text-decoration-none"
+            >Shop Now</a
+          >
+        </div>
+        <img
+          class="object-fit-cover w-100"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/collections/collection_-_sofa_540x.jpg?v=1682076922"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="products text-center my-5" id="products">
+      <h2 class="text-capitalize">our products</h2>
+      <ul
+        class="product-nav-links text-capitalize mt-4 products-links list-unstyled d-flex flex-wrap w-75 m-auto justify-content-center align-items-center"
+      >
+        <li id="cabinet-link" class="text-dark text-decoration-none m-2 opacity-75 fw-bold p-1">cabinat
+        </li>
+        <li id="chairs" class="text-dark text-decoration-none m-2 opacity-75 fw-bold p-1">
+          Chair
+        </li>
+        <li id="lamp" class="text-dark text-decoration-none m-2 opacity-75 fw-bold p-1">
+         lamp
+        </li>
+        <li id="tables" class="text-dark text-decoration-none m-2 opacity-75 fw-bold p-1">
+          table
+        </li>
+      </ul>
+    </div>
+    <div id="c-group" class="card-group container-fluid p-5 gap-5 ">
+
+    </div>
+    <div class="timer" style="height: 70vh; background-size: cover">
+      <div
+        class="text p-3 h-100 d-flex flex-column w-50 justify-content-center"
+      >
+        <p class="fs-5 fw-light">Chair & Sofa For Sale</p>
+        <h3 class="fw-bold" style="font-size: 3.5rem; letter-spacing: 2px">
+          LIMITED TIME OFFER
+        </h3>
+        <div class="time mt-3 d-flex gap-2 justify-content-start">
+          <div class="pt-3 day text-start fs-4 border border-1 border-black d-flex justify-content-around align-items-center flex-column" style="width: 60px;height: 100%;">
+            <p class="fs-1 fw-bolder">25</p>
+            <p class="fw-light" style="font-size: .7rem !important;">DAYS</p>
+          </div>
+          
+          <div class="pt-3 hours text-start fs-4 border border-1 border-black d-flex justify-content-center align-items-center flex-column" style="width: 60px;height: 100%;">
+            <p class="fs-1 fw-bolder">5</p>
+            <p class="fw-light" style="font-size: .7rem !important;">HOURS</p>
+          </div>
+
+          <div id="minutes" class="pt-3 minutes text-start fs-4 border border-1 border-black d-flex justify-content-around align-items-center flex-column" style="width: 60px;height: 100%;">
+            <p id="count-minutes" class="count-minutes fs-1 fw-bolder">59</p>
+            <p class="fw-light" style="font-size: .7rem !important;">MINUTES</p>
+          </div>
+          
+          <div id="seconds" class="pt-3 seconds text-start fs-4  border border-1 border-black d-flex justify-content-center align-items-center flex-column" style="width: 60px;height: 100%;">
+            <p id="seconds-count" class="count fs-1 fw-bolder">59</p>
+            <p class="fw-light " style="font-size: .7rem !important;">SECONDS</p>
+          </div>
+        </div>
+        <button
+          class="mt-5 py-2 text-light bg-dark border-0"
+          style="width: 17%"
+        >
+          Shop Now
+        </button>
+      </div>
+    </div>
+    <div
+      class="companies d-flex flex-wrap justify-content-center gap-5 p-5 m-5"
+    >
+      <img
+        class="mx-5"
+        style="max-width: 100%; width: 200px; height: 100px"
+        src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/logo-1_91a81b88-a125-4c89-8e41-d8ba6c3a4458.png?v=1682002959"
+        alt=""
+      />
+      <img
+        style="max-width: 100%; width: 200px; height: 100px"
+        class="mx-5"
+        src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/logo-2_c465a837-668f-419e-9473-1d74a1f3b1c4.png?v=1682002971"
+        alt=""
+      />
+      <img
+        style="max-width: 100%; width: 200px; height: 100px"
+        class="mx-5"
+        src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/logo-3_fa6cd9a4-8e4e-461b-b369-9c8e6a256519.png?v=1682002981"
+        alt=""
+      />
+      <img
+        style="max-width: 100%; width: 200px; height: 100px"
+        class="mx-5"
+        src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/logo-4_8ffae0dd-c8ba-48d1-90bc-8e574eb240ea.png?v=1682002990"
+        alt=""
+      />
+      <img
+        style="max-width: 100%; width: 200px; height: 100px"
+        class="mx-5"
+        src="https://cdn.shopify.com/s/files/1/0749/8304/7476/files/logo-5_d0aa84e4-742e-4fc3-b9f8-88d9171d7222.png?v=1682003000"
+        alt=""
+      />
+    </div>
+    <div
+    id="contact"
+      class="footer d-flex justify-content-between p-5 text-light"
+      style="background-color: var(--dark)"
+    >
+      <div class="left">
+        <h1 class="fw-bold">Comfort</h1>
+        <div class="text">
+          <address class="d-flex gap-2 align-items-start my-3">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://goo.gl/maps/f8Hn48LWXLopZJyq5" class="text-light">Elsafyna,Toukh,Qalupia</a>
+          </address>
+           <div class="email d-flex align-items-center my-1">
+            <i class="fa-regular fa-envelope"></i>
+            <p class="m-auto mx-1 small">
+              <a
+                href="mailto:sayedrady61@gmail.com"
+                class="text-light"
+                >sayedrady61@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="phone d-flex align-items-center">
+            <i class="fa-solid fa-phone"></i>
+            <p class="m-2 small">
+              <a href="tel:+2013631377" class="text-light"
+                >+2013631377</a
+              >
+            </p>
+          </div>
+          <div class="social mx-2 my-4">
+          <a href="https://twitter.com/sayed__rady" class="text-light text-decoration-none">
+            <i class="fa-brands fa-twitter px-1"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100092678178223" class="text-light text-decoration-none">
+            <i class="fa-brands fa-facebook px-1"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100092678178223" class="text-light text-decoration-none">
+            <i class="fa-brands fa-instagram px-1"></i>
+          </a>
+        </div>
+        </div>
+        </div>
+      <div class="center">
+        <h4 class="fw-bold">INFORMATION</h4>
+        <ul class="list-unstyled d-flex flex-column g-5 text-capitalize">
+          <li><a href="" class="text-light text-decoration-none">FAQ</a></li>
+          <li>PRIVACY POLICY</li>
+          <li>CUSTOMER SERVICES</li>
+          <li>CONTACT US</li>
+        </ul>
+      </div>
+      <div class="right">
+        <h4 class="fw-bold">NEWSLETTER</h4>
+        <p class="w-75">Enter your email below to be the first to know about new collections and product launches.</p>
+        <input type="text" class="bg-transparent p-1 text-light border-0 border-bottom w-50 fs-6" placeholder="Email">
+        <a href="mailto:sayedrady388@gmail.com" class="text-decoration-none text-light bg-black px-4 py-2 mx-5">Send</a>
+      </div>
+    </div>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="all.min.js"></script>
+    <script src="enc.js" type="text/javascript"></script>
+  </body>
+</html>

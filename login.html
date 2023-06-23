@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    @media (max-width: 700px) {
+      .login #auth-form {
+        width: 370px !important;
+      }
+    }
+  </style>
+  <body style="max-width: 100%">
+    <div
+      class="loign communication-header text-light d-flex flex-row justify-content-between align-items-center px-4"
+    >
+      <div
+        class="left d-flex flex-row align-items-center justify-content-between"
+      >
+        <div class="social mx-2">
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-twitter px-1"></i>
+          </a>
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-facebook px-1"></i>
+          </a>
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-instagram px-1"></i>
+          </a>
+        </div>
+        <div class="phone-email d-flex align-items-center flex-row-reverse">
+          <div class="email d-flex align-items-center">
+            <i class="fa-regular fa-envelope"></i>
+            <p class="m-auto mx-1 small">
+              <a
+                href="mailto:sayedrady61@gmail.com"
+                class="text-light text-decoration-none"
+                >sayedrady61@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="phone d-flex align-items-center px-3">
+            <i class="fa-solid fa-phone"></i>
+            <p class="m-auto small">
+              <a href="tel:+2013631377" class="text-light text-decoration-none"
+                >+2013631377</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Language
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="">English</a></li>
+          <li><a class="dropdown-item" href="#">Arabic</a></li>
+        </ul>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Country
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="">Egypt</a></li>
+          <li><a class="dropdown-item" href="#">England</a></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="header p-3 px-4 d-flex justify-content-center align-items-start"
+      style="
+        z-index: 55 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="header"
+    >
+      <h3 class="fw-bold">Comfort</h3>
+    </div>
+    <div
+      class="login d-flex flex-column justify-content-around align-items-center"
+      style="height: 70vh"
+    >
+      <form
+        id="auth-form"
+        action=""
+        style="width: 410px"
+        class="p-5 d-flex flex-column justify-content-center align-content-center gap-2"
+      >
+        <h3 class="text-center fw-bold fw-semibold opacity-75">Login</h3>
+        <div class="email d-none mb-2" id="email">
+          <label class="form-label opacity-75 mt-4 email-l" for="">Email</label>
+          <input type="email" class="form-control email" style="height: 40px" />
+        </div>
+
+        <div class="login-base" id="login-base">
+          <label class="form-label opacity-75 username-l" for=""
+            >Username</label
+          >
+          <input
+            type="text"
+            class="form-control username"
+            style="height: 40px"
+          />
+          <label class="form-label opacity-75 mt-4 password-l" for=""
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control password"
+            style="height: 40px"
+          />
+        </div>
+        <p
+          class="fw-bold opacity-75"
+          style="cursor: pointer; letter-spacing: 1px"
+          id="forgot-password-btn"
+        >
+          Forgot Password?
+        </p>
+        <div class="buttoms d-flex justify-content-between align-items-center">
+          <button id="btn" class="btn btn-dark px-5">Sign In</button>
+          <p
+            id="create-acc"
+            class="fw-bold opacity-75"
+            style="cursor: pointer; letter-spacing: 1px"
+          >
+            Create Account
+          </p>
+        </div>
+      </form>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="all.min.js"></script>
+    <script src="auth.js" type="text/javascript"></script>
+  </body>
+</html>

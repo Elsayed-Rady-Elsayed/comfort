@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <style>
+    @media (max-width: 776px) {
+      .cart-part,
+      .fav-part {
+        top: 20% !important;
+      }
+    }
+  </style>
+  <body>
+    <div
+      class="cart-part position-absolute end-0 bg-body-secondary"
+      style="
+        top: 13%;
+        display: none;
+        width: 300px !important;
+
+        z-index: 228822 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="cart-part"
+    >
+      <div class="header opacity-75 d-flex justify-content-between p-2">
+        <h3 class="opacity-75">Shopping cart</h3>
+      </div>
+    </div>
+    <div
+      class="fav-part position-absolute end-0 bg-body-secondary"
+      style="
+        top: 13%;
+        display: none;
+        width: 300px !important;
+        height: 90vh !important;
+        z-index: 228822 !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      "
+      id="fav-part"
+    >
+      <div class="header opacity-75 d-flex justify-content-between p-2">
+        <h3 class="opacity-75">Favourits</h3>
+      </div>
+      <div class="item d-flex m-3 gap-2">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195"
+          class="w-50"
+          style=""
+          alt=""
+        />
+        <div class="text w-50">
+          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
+          <div class="price fw-light mt-2">987$</div>
+          <div class="color fw-light mt-2">Black</div>
+          <button
+            class="border-1 border border-dark mt-2 text-danger"
+            style="width: 80px; height: 40px"
+          >
+            Delete<i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="communication-header text-light d-flex flex-row justify-content-between align-items-center px-2"
+    >
+      <div
+        class="left d-flex flex-row align-items-center justify-content-between"
+      >
+        <div class="social mx-2">
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-twitter px-1"></i>
+          </a>
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-facebook px-1"></i>
+          </a>
+          <a href="" class="text-light text-decoration-none">
+            <i class="fa-brands fa-instagram px-1"></i>
+          </a>
+        </div>
+        <div class="phone-email d-flex align-items-center flex-row-reverse">
+          <div class="email d-flex align-items-center">
+            <i class="fa-regular fa-envelope"></i>
+            <p class="m-auto mx-1 small">
+              <a
+                href="mailto:sayedrady61@gmail.com"
+                class="text-light text-decoration-none"
+                >sayedrady61@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="phone d-flex align-items-center px-3">
+            <i class="fa-solid fa-phone"></i>
+            <p class="m-auto small">
+              <a href="tel:+2013631377" class="text-light text-decoration-none"
+                >+2013631377</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Language
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="">English</a></li>
+          <li><a class="dropdown-item" href="#">Arabic</a></li>
+        </ul>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Country
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="">Egypt</a></li>
+          <li><a class="dropdown-item" href="#">England</a></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="search-part"
+      class="search p-3 d-flex justify-content-between align-items-center position-absolute w-100 bg-light z-3"
+      style="top: -50%; transition: 0.3s"
+    >
+      <div class="empty"></div>
+      <input type="search" class="form-control w-50 p-3" placeholder="Search" />
+      <div class="close-search" id="close-search" style="cursor: pointer">
+        X
+      </div>
+    </div>
+    <div
+      class="header p-3 px-4 d-flex justify-content-between align-items-start"
+      style="z-index: 55 !important"
+      id="header"
+    >
+      <div id="menu" class="d-none"><i id="" class="fa-solid fa-bars"></i></div>
+      <h3 class="fw-bold">Comvort</h3>
+      <ul class="navbar-links m-auto">
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="home-btn"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="product-btn"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 opacity-75 fw-light"
+          style="color: var(--dark)"
+          id="shop-btn"
+        >
+          <a href="#products" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="page-btn"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="blog-btn"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-light opacity-75"
+          style="color: var(--dark)"
+          id="contact-btn"
+        >
+          <a href="#contact" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+      <div class="links d-flex gap-4 justify-content-center align-items-center">
+        <a id="search"
+          ><i class="fa-solid fa-magnifying-glass text-dark"></i
+        ></a>
+        <a id="fav"><i class="fa-regular fa-heart text-dark"></i></a>
+        <a id="cart"><i class="fa-solid fa-cart-shopping text-dark"></i></a>
+        <a href=""><i class="fa-regular fa-user text-dark"></i></a>
+      </div>
+    </div>
+    <div
+      id="sm-menu"
+      class="small-screen-menu bg-light"
+      style="
+        z-index: 22443;
+        width: 100%;
+        height: 50vh;
+        display: none;
+        transition: 0.3s !important;
+      "
+    >
+      <ul
+        class="navbar-links m-auto d-flex flex-column align-items-start justify-content-start p-2 h-100"
+      >
+        <button
+          class="home-btn-sm btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          HOME
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="product-btn-sm"
+        >
+          PRODUCT
+        </button>
+        <button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          <a href="#products" class="text-dark text-decoration-none">SHOP</a>
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="page-btn-sm"
+        >
+          PAGE
+        </button>
+        <button
+          class="btn btn-dark dropdown-toggle bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+          id="blog-btn-sm"
+        >
+          BLOG</button
+        ><button
+          class="btn bg-transparent border-0 fw-semibold opacity-75"
+          style="color: var(--dark)"
+        >
+          <a href="#contact" class="text-dark text-decoration-none">CONTACT</a>
+        </button>
+      </ul>
+    </div>
+    <div
+      class="product-sm container-sm d-flex justify-content-center"
+      style="width: 100%; height: 80vh"
+    >
+      <div class="img w-50">
+        <img
+          style="max-width: 100%"
+          src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_f52c6f39-cf29-4f45-ac37-896a39bd44a4_720x.jpg?v=1681304938"
+          alt=""
+        />
+      </div>
+      <div class="dtails w-50 d-flex flex-column text-start mx-4">
+        <p class="fs-6 fw-light opacity-75">by Comvort</p>
+        <p class="name fw-semibold fs-2">Astrid Cabinet</p>
+        <ul class="list-unstyled d-flex opacity-75">
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star-half-stroke"></i></li>
+          <li><i class="fa-regular fa-star"></i></li>
+        </ul>
+        <p class="price fs-4 opacity-100">$987.00</p>
+        <p class="text-capitalize opacity-75">
+          color: <b class="text-black" style="opacity: 1 !important">Brown</b>
+        </p>
+        <div class="colors d-flex gap-3" style="cursor: pointer">
+          <span
+            style="width: 40px; height: 40px; background-color: var(--brown)"
+            class="rounded-circle d-block border border-2 border-black p-1"
+          ></span>
+          <span
+            style="
+              width: 40px;
+              height: 40px;
+              background-color: var(--yello-dark);
+            "
+            class="rounded-circle d-block"
+          ></span>
+        </div>
+        <div class="ship-size d-flex gap-4 mt-4">
+          <p class="fw-bold text-dark">
+            <i class="fa-solid fa-truck mx-2"></i>Shipping
+          </p>
+          <p class="fw-bold text-dark">
+            <i class="fa-solid fa-ruler mx-2"></i>Size Guide
+          </p>
+        </div>
+        <div
+          class="count border border-black border-1 p-2 w-25 d-flex justify-content-evenly"
+        >
+          <span>-</span> <span>1</span><span>+</span>
+        </div>
+        <div class="btns mt-4 d-flex gap-2 flex-wrap">
+          <button
+            style="transition: 0.3s; width: 46%"
+            id="add-to-cart"
+            class="border border-1 border-black p-2 bg-transparent"
+          >
+            add to cart
+          </button>
+          <button
+            style="transition: 0.3s; width: 46%"
+            class="buy-now border border-1 border-black p-2 w-50 bg-black text-light"
+            id="buy-now"
+          >
+            buy it now
+          </button>
+          <button class="p-2 bg-transparent border border-black">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <button class="p-2 bg-transparent border border-black">
+            <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+          </button>
+        </div>
+        <p class="mt-2 fw-bold">Guarantee safe & secure checkout</p>
+      </div>
+    </div>
+    <div class="pressed-link-extansion d-none" id="press-li-ex"></div>
+    <script>
+      document.getElementById("cart").onclick = () => {
+        $("#cart-part").fadeToggle();
+      };
+
+      document.getElementById("fav").onclick = () => {
+        $("#fav-part").fadeToggle();
+      };
+      document.getElementById("search").onclick = () => {
+        $("#search-part").animate({
+          top: "0%",
+        });
+      };
+      document.getElementById("close-search").onclick = () => {
+        document.getElementById("search-part").style.cssText =
+          "top:-30% !important;";
+        document.getElementById("overlay").style.cssText =
+          "display:none !important;";
+      };
+      let img = window.localStorage.getItem("img");
+      let name = window.localStorage.getItem("name");
+      let price = window.localStorage.getItem("price");
+      document.querySelector(".product-sm img").src = img;
+      document.querySelector(".product-sm .dtails .price").innerHTML =
+        "$" + price;
+      document.querySelector(".product-sm .dtails .name").innerHTML = name;
+      let cart = [];
+      let arr = [];
+      try {
+        let getCart = JSON.parse(window.localStorage.getItem("item"));
+        getCart.forEach((element) => {
+          arr.push(element);
+          cartItemdInsert(element);
+        });
+      } catch {}
+      function cartItemdInsert(el) {
+        let card = document.createElement("div");
+        card.classList = "item d-flex m-3 gap-2";
+        let img = document.createElement("img");
+        img.src = el.img;
+        img.classList = "w-50";
+        card.appendChild(img);
+        let text = document.createElement("div");
+        text.classList = "text w-50";
+        let name = document.createElement("div");
+        name.classList = "name fw-bold opacity-75 mt-2";
+        name.innerHTML = el.name;
+        text.appendChild(name);
+        let price = document.createElement("div");
+        price.classList = "price fw-light mt-2";
+        price.innerHTML = el.price;
+        text.appendChild(price);
+        let btn = document.createElement("button");
+        btn.classList = "border-1 border border-dark mt-2 text-danger";
+        btn.style.cssText = "width: 80px; height: 40px";
+        btn.innerHTML = "Delete";
+        let i = document.createElement("i");
+        i.classList = "fa-regular fa-trash-can";
+        btn.appendChild(i);
+        text.appendChild(btn);
+        card.appendChild(text);
+        document.getElementById("cart-part").appendChild(card);
+      }
+      document.getElementById("add-to-cart").onclick = () => {
+        arr.push({
+          img: img,
+          name: name,
+          price: price,
+        });
+        window.localStorage.setItem("item", JSON.stringify(arr));
+        window.location.reload();
+      };
+      document.getElementById("buy-now").onclick = () => {
+        window.location.href = "shipping.html";
+      };
+    </script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="all.min.js"></script>
+    <!-- <script src="enc.js" type="text/javascript"></script> -->
+  </body>
+</html>
