@@ -173,7 +173,10 @@ button:hover {
   opacity: 0.5;
   cursor: pointer;
 }
-
+#carouselExampleCaptions,
+.carousel-inner {
+  height: 80vh;
+}
 @media (max-width: 700px) {
   .communication-header,
   .communication-header .left {
@@ -192,6 +195,10 @@ button:hover {
 @media (min-width: 900px) {
   .landing .left img {
     overflow: hidden;
+  }
+  #carouselExampleCaptions,
+  .carousel-inner {
+    height: 80vh !important;
   }
 }
 @media (max-width: 854px) {
@@ -277,6 +284,10 @@ button:hover {
   }
   .product-sm .dtails {
     width: 100% !important;
+  }
+  #carouselExampleCaptions,
+  .carousel-inner {
+    height: 60vh !important;
   }
 }
 @media (max-width: 400px) {
