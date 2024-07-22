@@ -14,100 +14,20 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-      <style>
-    @media (max-width: 700px) {
-      .login #auth-form {
-        width: 100% !important;
-      }
-    }
-     @media (max-width: 776px) {
-      .landing-faq img {
-        max-width: 0px !important;
-      }
-      .question {
-        width: 100% !important;
-        padding: 20px 0 !important;
-        padding-right: 22px !important;
-      }
-      .features ul {
-        flex-direction: column;
-      }
-      .con-form {
-        width: 100% !important;
-      }
-    }
-        @media (max-width: 776px) {
-      .cards-holder {
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr)) !important;
-      }
-    }
-    @media (max-width: 776px) {
-      .landing-faq img {
-        max-width: 0px !important;
-      }
-      .question {
-        width: 100% !important;
-        padding: 20px 0 !important;
-        padding-right: 22px !important;
-      }
-      .features ul {
-        flex-direction: column;
-      }
-    }
-    #contact:hover {
-      color: white !important;
-      background-color: black !important;
-    }
-    @media (max-width: 776px) {
-      .cards .top {
-        flex-direction: column;
-      }
-      .bottom {
-        flex-direction: column-reverse !important;
-      }
-      .cards .top .text,
-      .bottom .text {
-        gap: 0 !important;
-      }
-      .bottom .text {
-        align-items: flex-end;
-        text-align: end;
-      }
-      .cards .top img,
-      .bottom img {
-        min-width: 100% !important;
-      }
-      .cards .top .text h3,
-      .bottom .text h3 {
-        font-size: 25px !important;
-      }
-      .top button,
-      .bottom button {
-        width: fit-content !important;
-      }
-    }
-     .section1 h1,
-    .section2 h1,
-    .section3 h1,
-    .section4 h1 {
-      font-size: 4rem !important;
-    }
-    @media (max-width: 800px) {
-      .section1 h1,
-      .section2 h1,
-      .section3 h1,
-      .section4 h1 {
-        font-size: 2rem !important;
-      }
-    }
-  </style>
   </head>
   <body>
     <div id="goTop" class="goTop position-fixed bg-dark text-light p-3 z-3" style="right: 2%; bottom: 2%;display: none;cursor: pointer;"><i class="fa-solid fa-chevron-up"></i></div>
-    <div id="search-part" class="search p-3 d-flex justify-content-between align-items-center position-absolute w-100 bg-light z-3" style="top: -50%;transition: .3s;">
+    <div id="search-part" class="search p-3 d-flex justify-content-between align-items-center position-absolute w-100 bg-light z-3" style="top: -12%;transition: .3s;">
       <div class="empty"></div>
-      <input type="search" class="form-control w-50 p-3" placeholder="Search">
+      <input id="seacrhInput" type="text" class="form-control w-50 p-3" placeholder="Search">
       <div class="close-search" id="close-search" style="cursor: pointer;">X</div>
+    </div>
+    <div class="searchBody w-100 p-2 g-3 position-absolute bg-white z-3 d-none" style="top: 11%;" id="serachBody">
+      <div class="header d-flex justify-content-between align-items-center p-2">
+        <p>search result</p>
+        <div id="closeSeachBody" class="" style="cursor: pointer;">X</div>
+      </div>
+      <div class="content p-2 row overflow-auto" style="max-height: 100vh;"></div>
     </div>
     <div class="overlay bg-black opacity-50 position-absolute" id="overlay" style="z-index: -33;;width: 100vw; height: 100vh;display: none;"></div>
     <div
@@ -278,15 +198,6 @@
     <div class="fav-part position-absolute end-0 bg-white" style="display: none;width: 300px !important;z-index: 228822 !important;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" id="fav-part">
       <div class="header opacity-75 d-flex justify-content-between p-2 ">
         <h3 class="opacity-75">Favourits</h3>
-      </div>
-      <div class="item d-flex m-3 gap-2 ">
-        <img src="https://cdn.shopify.com/s/files/1/0749/8304/7476/products/1_c7140b9b-cb61-4adf-b1f6-fd0f7d0b14df_300x.jpg?v=1681305195" class=" w-50" style=" " alt="">
-        <div class="text w-50">
-          <div class="name fw-bold opacity-75 mt-2">Astried Cabinet</div>
-          <div class="price fw-light mt-2">987$</div>
-          <div class="color fw-light mt-2">Black</div>
-          <button class="border-1 border border-dark mt-2 text-danger" style="width: 80px; height: 40px;">Delete<i class="fa-regular fa-trash-can"></i></button>
-        </div>
       </div>
     </div>
     <div id="LandingPageSection" class="">
@@ -1207,7 +1118,7 @@
           >
             buy it now
           </button>
-          <button class="p-2 bg-transparent border border-black">
+          <button class="p-2 bg-transparent border border-black" id="add-to-fav">
             <i class="fa-regular fa-heart"></i>
           </button>
           <button class="p-2 bg-transparent border border-black">
@@ -1289,76 +1200,6 @@
       $(document).ready(() => {
         $(".cards #top,.cards .bottom").show(1000).css("display", "flex");
       });
-    </script>
-    <script>
-      document.getElementById("cart").onclick = () => {
-        $("#cart-part").fadeToggle();
-      };
-
-      document.getElementById("fav").onclick = () => {
-        $("#fav-part").fadeToggle();
-      };
-      document.getElementById("search").onclick = () => {
-        $("#search-part").animate({
-          top: "0%",
-        });
-      };
-      document.getElementById("close-search").onclick = () => {
-        document.getElementById("search-part").style.cssText =
-          "top:-30% !important;";
-        document.getElementById("overlay").style.cssText =
-          "display:none !important;";
-      };
-      
-      let cart = [];
-      let arr2 = [];
-      try {
-        let getCart = JSON.parse(window.localStorage.getItem("item"));
-        getCart.forEach((element) => {
-          arr2.push(element);
-          cartItemdInsert(element);
-        });
-      } catch {}
-      function cartItemdInsert(el) {
-        let card = document.createElement("div");
-        card.classList = "item d-flex m-3 gap-2";
-        let img = document.createElement("img");
-        img.src = el.img;
-        img.classList = "w-50";
-        card.appendChild(img);
-        let text = document.createElement("div");
-        text.classList = "text w-50";
-        let name = document.createElement("div");
-        name.classList = "name fw-bold opacity-75 mt-2";
-        name.innerHTML = el.name;
-        text.appendChild(name);
-        let price = document.createElement("div");
-        price.classList = "price fw-light mt-2";
-        price.innerHTML = el.price;
-        text.appendChild(price);
-        let btn = document.createElement("button");
-        btn.classList = "border-1 border border-dark mt-2 text-danger";
-        btn.style.cssText = "width: 80px; height: 40px";
-        btn.innerHTML = "Delete";
-        let i = document.createElement("i");
-        i.classList = "fa-regular fa-trash-can";
-        btn.appendChild(i);
-        text.appendChild(btn);
-        card.appendChild(text);
-        document.getElementById("cart-part").appendChild(card);
-      }
-      document.getElementById("add-to-cart").onclick = () => {
-        arr2.push({
-          img: img,
-          name: name,
-          price: price,
-        });
-        window.localStorage.setItem("item", JSON.stringify(arr2));
-        window.location.reload();
-      };
-      document.getElementById("buy-now").onclick = () => {
-        window.location.href = "shipping.html";
-      };
     </script>
   </body>
 </html>

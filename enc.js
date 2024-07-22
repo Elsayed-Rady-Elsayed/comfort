@@ -471,6 +471,7 @@ document.getElementById("fav").onclick = () => {
 };
 
 document.getElementById("search").onclick = () => {
+  document.getElementById("serachBody").classList.remove("d-none");
   $("#search-part").animate({
     top: "0%",
   });
@@ -479,8 +480,13 @@ document.getElementById("search").onclick = () => {
 document.getElementById("close-search").onclick = () => {
   document.getElementById("search-part").style.cssText = "top:-30% !important;";
   document.getElementById("overlay").style.cssText = "display:none !important;";
+  document.getElementById("serachBody").classList.add("d-none");
 };
-
+document.getElementById("closeSeachBody").onclick = () => {
+  document.getElementById("search-part").style.cssText = "top:-30% !important;";
+  document.getElementById("overlay").style.cssText = "display:none !important;";
+  document.getElementById("serachBody").classList.add("d-none");
+};
 $(window).on("scroll", () => {
   let sc = $(window).scrollTop();
   if (sc > 800) {
@@ -498,60 +504,15 @@ document.getElementById("cart").onclick = () => {
   $("#cart-part").fadeToggle();
 };
 
-document.getElementById("fav").onclick = () => {
-  $("#fav-part").fadeToggle();
-};
+// document.getElementById("fav").onclick = () => {
+//   $("#fav-part").fadeToggle();
+// };
 
-document.getElementById("search").onclick = () => {
-  $("#search-part").animate({
-    top: "0%",
-  });
-};
-
-document.getElementById("close-search").onclick = () => {
-  document.getElementById("search-part").style.cssText = "top:-30% !important;";
-  document.getElementById("overlay").style.cssText = "display:none !important;";
-};
-
-try {
-  let getCart = JSON.parse(window.localStorage.getItem("item"));
-  getCart.forEach((element) => {
-    console.log(element);
-    arr.push(element);
-    cartItemdInsertcard(element);
-  });
-} catch (e) {
-  console.log(e);
-}
-
-function cartItemdInsertcard(el) {
-  let card = document.createElement("div");
-  card.classList = "item d-flex m-3 gap-2";
-  let img = document.createElement("img");
-  img.src = el.img;
-  img.classList = "w-50";
-  card.appendChild(img);
-  let text = document.createElement("div");
-  text.classList = "text w-50";
-  let name = document.createElement("div");
-  name.classList = "name fw-bold opacity-75 mt-2";
-  name.innerHTML = el.name;
-  text.appendChild(name);
-  let price = document.createElement("div");
-  price.classList = "price fw-light mt-2";
-  price.innerHTML = el.price;
-  text.appendChild(price);
-  let btn = document.createElement("button");
-  btn.classList = "border-1 border border-dark mt-2 text-danger";
-  btn.style.cssText = "width: 80px; height: 40px";
-  btn.innerHTML = "Delete";
-  let i = document.createElement("i");
-  i.classList = "fa-regular fa-trash-can";
-  btn.appendChild(i);
-  text.appendChild(btn);
-  card.appendChild(text);
-  document.getElementById("cart-part").appendChild(card);
-}
+// document.getElementById("search").onclick = () => {
+//   $("#search-part").animate({
+//     top: "0%",
+//   });
+// };
 
 $("#show-answer1").click(() => {
   $("#answer1").slideToggle();
@@ -656,15 +617,15 @@ setTimeout(() => {
 }, 3000);
 
 let cart = [];
-let arr2 = [];
 try {
   let getCart = JSON.parse(window.localStorage.getItem("item"));
-  getCart.forEach((element) => {
-    arr2.push(element);
-    cartItemdInsert(element);
+  getCart.forEach((element, idx) => {
+    cartItemdInsert(element, idx);
   });
-} catch {}
-function cartItemdInsert(el) {
+} catch (e) {
+  console.log(e);
+}
+function cartItemdInsert(el, idx) {
   let card = document.createElement("div");
   card.classList = "item d-flex m-3 gap-2";
   let img = document.createElement("img");
@@ -682,9 +643,10 @@ function cartItemdInsert(el) {
   price.innerHTML = el.price;
   text.appendChild(price);
   let btn = document.createElement("button");
-  btn.classList = "border-1 border border-dark mt-2 text-danger";
+  btn.classList = "border-1 border border-dark mt-2 text-danger bg-white";
   btn.style.cssText = "width: 80px; height: 40px";
   btn.innerHTML = "Delete";
+  btn.dataset.idx = idx;
   let i = document.createElement("i");
   i.classList = "fa-regular fa-trash-can";
   btn.appendChild(i);
@@ -692,21 +654,164 @@ function cartItemdInsert(el) {
   card.appendChild(text);
   document.getElementById("cart-part").appendChild(card);
 }
-const img = window.localStorage.getItem("img");
-const name = window.localStorage.getItem("name");
-const price = window.localStorage.getItem("price");
-// window.localStorage.setItem("item", JSON.stringify([]));
-let oldCart = [...JSON.parse(window.localStorage.getItem("item"))];
+
+document.querySelectorAll("#cart-part .item button").forEach((element) => {
+  let cart = JSON.parse(window.localStorage.getItem("item")) ?? [];
+  element.addEventListener("click", (ev) => {
+    let NewCart = cart.filter((el, idx) => idx != ev.target.dataset.idx);
+    window.localStorage.setItem("item", JSON.stringify(NewCart));
+    window.location.reload();
+  });
+});
+
 document.getElementById("add-to-cart").onclick = () => {
-  oldCart = [];
+  const img = window.localStorage.getItem("img");
+  const name = window.localStorage.getItem("name");
+  const price = window.localStorage.getItem("price");
+  let oldCart =
+    JSON.parse(window.localStorage.getItem("item")) === null
+      ? []
+      : [...JSON.parse(window.localStorage.getItem("item"))];
+
   oldCart.push({
     img: img,
     name: name,
     price: price,
   });
+
   window.localStorage.setItem("item", JSON.stringify(oldCart));
   window.location.reload();
 };
+
+let favList = [];
+
+try {
+  let getFav = JSON.parse(window.localStorage.getItem("favItems"));
+  getFav.forEach((element, idx) => {
+    favItemInsert(element, idx);
+  });
+} catch (e) {
+  console.log(e);
+}
+
+function favItemInsert(el, idx) {
+  let card = document.createElement("div");
+  card.classList = "item d-flex m-3 gap-2";
+  let img = document.createElement("img");
+  img.src = el.img;
+  img.classList = "w-50";
+  card.appendChild(img);
+  let text = document.createElement("div");
+  text.classList = "text w-50";
+  let name = document.createElement("div");
+  name.classList = "name fw-bold opacity-75 mt-2";
+  name.innerHTML = el.name;
+  text.appendChild(name);
+  let price = document.createElement("div");
+  price.classList = "price fw-light mt-2";
+  price.innerHTML = el.price;
+  text.appendChild(price);
+  let btn = document.createElement("button");
+  btn.classList = "border-1 border border-dark mt-2 text-danger bg-white";
+  btn.style.cssText = "width: 80px; height: 40px";
+  btn.innerHTML = "Delete";
+  btn.dataset.idx = idx;
+  let i = document.createElement("i");
+  i.classList = "fa-regular fa-trash-can";
+  btn.appendChild(i);
+  text.appendChild(btn);
+  card.appendChild(text);
+  document.getElementById("fav-part").appendChild(card);
+}
+
+document.getElementById("add-to-fav").onclick = () => {
+  const img = window.localStorage.getItem("img");
+  const name = window.localStorage.getItem("name");
+  const price = window.localStorage.getItem("price");
+  let oldCart =
+    JSON.parse(window.localStorage.getItem("favItems")) === null
+      ? []
+      : [...JSON.parse(window.localStorage.getItem("favItems"))];
+
+  oldCart.push({
+    img: img,
+    name: name,
+    price: price,
+  });
+
+  window.localStorage.setItem("favItems", JSON.stringify(oldCart));
+  window.location.reload();
+};
+
+document.querySelectorAll("#fav-part .item button").forEach((element) => {
+  let favList = JSON.parse(window.localStorage.getItem("favItems")) ?? [];
+  element.addEventListener("click", (ev) => {
+    let NewFavList = favList.filter((el, idx) => idx != ev.target.dataset.idx);
+    window.localStorage.setItem("favItems", JSON.stringify(NewFavList));
+    window.location.reload();
+  });
+});
+
 document.getElementById("buy-now").onclick = () => {
   window.location.href = "shipping.html";
 };
+function makeSearchItem(list) {
+  document.querySelector("#serachBody .content").innerHTML = "";
+  list.forEach((el) => {
+    let card = document.createElement("div");
+    let span = document.createElement("span");
+    let pName = document.createElement("p");
+    let text = document.createElement("div");
+    let img = document.createElement("img");
+    let PnewPrice = document.createElement("p");
+    let PoldPrice = document.createElement("del");
+    card.classList = "card border-0 text-center col-12 col-md-3";
+    card.id = "card";
+    if (el.sold) card.classList.add("opacity-50");
+    img.src = el.img;
+    img.classList = "w-100";
+    text.classList = "text mt-2";
+    pName.innerHTML = el.name;
+    pName.classList = "opacity-50";
+    text.appendChild(pName);
+    PoldPrice.innerHTML = "old price $" + el.old_price;
+    PoldPrice.classList = "opacity-50 text text-danger";
+    PoldPrice.style.cssText = "margin-top: -10px;";
+    PnewPrice.innerHTML = "price $" + el.price;
+    PnewPrice.classList = "opacity-50";
+    PnewPrice.style.cssText = "margin-top: 10px";
+    span.classList = "position-absolute m-3 text-light px-2";
+    span.style.cssText = "background-color: var(--dark-blue)";
+    if (el.old_price != el.price) {
+      span.innerHTML = "Offer";
+      span.style.cssText = "background-color: var(--red)";
+      if (el.sold) {
+        span.innerHTML = "Sold Out";
+        span.style.cssText = "background-color: var(--dark-blue) !important;";
+      }
+      text.appendChild(PoldPrice);
+    } else {
+      span.innerHTML = "New In";
+      if (el.sold) {
+        span.innerHTML = "Sold Out";
+        span.style.cssText = "background-color: var(--dark-blue) !important;";
+      }
+    }
+    card.appendChild(span);
+    text.appendChild(PnewPrice);
+    card.appendChild(img);
+    card.appendChild(text);
+    document.querySelector("#serachBody .content").appendChild(card);
+  });
+}
+
+let searchList = [];
+document.getElementById("seacrhInput").addEventListener("keydown", (evt) => {
+  searchList = [];
+  products.forEach((el) => {
+    if (el.name.toLocaleLowerCase().includes(evt.target.value)) {
+      searchList.push(el);
+      makeSearchItem(searchList);
+    }
+  });
+});
