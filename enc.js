@@ -504,16 +504,6 @@ document.getElementById("cart").onclick = () => {
   $("#cart-part").fadeToggle();
 };
 
-// document.getElementById("fav").onclick = () => {
-//   $("#fav-part").fadeToggle();
-// };
-
-// document.getElementById("search").onclick = () => {
-//   $("#search-part").animate({
-//     top: "0%",
-//   });
-// };
-
 $("#show-answer1").click(() => {
   $("#answer1").slideToggle();
 });
@@ -774,7 +764,6 @@ function makeSearchItem(list) {
     pName.innerHTML = el.name;
     pName.classList = "opacity-50";
     text.appendChild(pName);
-    PoldPrice.innerHTML = "old price $" + el.old_price;
     PoldPrice.classList = "opacity-50 text text-danger";
     PoldPrice.style.cssText = "margin-top: -10px;";
     PnewPrice.innerHTML = "price $" + el.price;
@@ -813,5 +802,70 @@ document.getElementById("seacrhInput").addEventListener("keydown", (evt) => {
       searchList.push(el);
       makeSearchItem(searchList);
     }
+  });
+});
+
+document.getElementById("oneCardLayout").addEventListener("click", () => {
+  document.getElementById("card-carry").classList.remove("cards-holder-lg");
+  document.getElementById("card-carry").classList.add("cards-holder-sm");
+});
+
+document.getElementById("twoCardLayout").addEventListener("click", () => {
+  document.getElementById("card-carry").classList.add("cards-holder-lg");
+  document.getElementById("card-carry").classList.remove("cards-holder-sm");
+});
+
+document.getElementById("sortByName").addEventListener("click", () => {
+  let p = products.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  cardCarry.innerHTML = "";
+  p.forEach((e) => {
+    card = document.createElement("div");
+    card.classList = "card-item position-relative m-2";
+    let banner = document.createElement("div");
+    banner.classList = "banner position-absolute text-light m-3 px-2";
+    if (e.newIn) {
+      banner.style.background = "#144171";
+      banner.innerHTML = "New In";
+      card.appendChild(banner);
+    }
+    if (e.sale) {
+      banner.style.backgroundColor = "red";
+      banner.innerHTML = "On Sale";
+      card.appendChild(banner);
+    }
+    if (e.sold) {
+      banner.style.backgroundColor = "black";
+      banner.innerHTML = "Sold Out";
+      card.appendChild(banner);
+      card.classList.add("opacity-75");
+    }
+    let img = document.createElement("img");
+    img.src = e.img;
+    img.classList = "p-img";
+    img.style.maxWidth = "100%";
+    card.append(img);
+    let text = document.createElement("div");
+    text.classList = "text mt-3 opacity-75";
+    let p1 = document.createElement("p");
+    p1.innerHTML = e.name;
+    let p2 = document.createElement("p");
+    p2.innerHTML = "$" + e.price;
+    card.appendChild(p1);
+    if (e.sale) {
+      let p3 = document.createElement("p");
+      p3.innerHTML = e.price - e.price * 0.5;
+      p2.style.cssText =
+        "opacity:.3 !important;text-decoration:line-through;display:inline;";
+      card.appendChild(p2);
+      p3.style.color = "red";
+      p3.style.cssText = "color:red;display:inline;margin:0 10px";
+      card.appendChild(p3);
+    } else {
+      card.appendChild(p2);
+    }
+
+    cardCarry.appendChild(card);
   });
 });

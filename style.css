@@ -395,3 +395,15 @@ button:hover {
     font-size: 2rem !important;
   }
 }
+.card-carry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+}
+.cards-holder-lg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+}
+.cards-holder-sm {
+  display: grid;
+  grid-template-columns: 1fr;
+}
